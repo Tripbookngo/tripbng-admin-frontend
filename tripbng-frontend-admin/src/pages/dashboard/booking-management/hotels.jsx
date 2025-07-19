@@ -7,7 +7,7 @@ import {
   TableHeader,
   TableRow,
 } from "../../../components/ui/table";
-
+import {API_BASE_URL} from "../../../services/api"
 const bookings = [
   {
     booking: "BK001",

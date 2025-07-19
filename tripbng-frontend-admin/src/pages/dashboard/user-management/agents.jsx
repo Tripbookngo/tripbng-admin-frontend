@@ -13,7 +13,7 @@ import { toast } from "react-toastify";
 import moment from "moment";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
-
+import {API_BASE_URL} from "../../../services/api"
 const AgentsPage = () => {
   const navigate = useNavigate();
   const [unapprovedAgents, setUnapprovedAgents] = useState([]);
@@ -33,7 +33,7 @@ const AgentsPage = () => {
         return;
       }
 
-      const response = await fetch("https://api.tripbng.com/admin/getallagent", {
+      const response = await fetch(`${API_BASE_URL}/admin/getallagent`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

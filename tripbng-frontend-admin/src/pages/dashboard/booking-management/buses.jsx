@@ -13,6 +13,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
+import {API_BASE_URL} from "../../../services/api"
 
 export default function Buses() {
   const [busBookings, setBusBookings] = useState([]);
@@ -35,7 +36,7 @@ export default function Buses() {
     const fetchBusData = async () => {
       try {
         const response = await axios.get(
-          "https://api.tripbng.com/admin/getallbusbooking",
+          `${API_BASE_URL}/admin/getallbusbooking`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

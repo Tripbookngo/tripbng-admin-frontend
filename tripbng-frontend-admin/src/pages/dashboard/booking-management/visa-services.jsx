@@ -12,7 +12,7 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
-
+import {API_BASE_URL} from "../../../services/api"
 export default function VisaBookings() {
   const [visaBookings, setVisaBookings] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -31,7 +31,7 @@ export default function VisaBookings() {
         return;
       }
 
-      const response = await fetch("https://api.tripbng.com/admin/getallvisabooking", {
+      const response = await fetch(`${API_BASE_URL}/admin/getallvisabooking`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",

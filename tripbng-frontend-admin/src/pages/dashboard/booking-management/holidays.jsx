@@ -12,6 +12,7 @@ import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import jsPDF from "jspdf";
 import autoTable from "jspdf-autotable";
+import {API_BASE_URL} from "../../../services/api"
 
 export default function Holidays() {
   const [holidayBookings, setHolidayBookings] = useState([]);
@@ -31,7 +32,7 @@ export default function Holidays() {
         return;
       }
 
-      const response = await fetch("https://api.tripbng.com/admin/getalltravquery", {
+      const response = await fetch(`${API_BASE_URL}/admin/getalltravquery`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
